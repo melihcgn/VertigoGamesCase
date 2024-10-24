@@ -12,7 +12,8 @@ namespace Wheel
         private bool isSpinning = false; // To track if the wheel is spinning
         private float targetAngle; // The angle to snap to after spinning
         public GameObject slicePrefab; // Reference to your WheelSlice prefab
-        public List<WheelSlice> wheelSlices; // List of slices on the wheel
+        public List<WheelSlice> wheelSlices; // List of slices on the wheel, 
+        //this wheelslices's reference can be found on "ui_image_spin_bronze", "ui_image_spin_silver", "ui_image_spin_golden", they can be changed.
         public ModalManager modalManager;
         private float initialAngle;
 

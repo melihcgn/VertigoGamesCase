@@ -7,7 +7,7 @@ public class LevelBar : MonoBehaviour
     public GameObject levelPrefab; // Prefab for level display (could be a button or text)
     public Transform levelContainer; // Parent object to hold level display items
     public int totalLevels = 60; // Total levels available
-    private int currentLevel = 10; // Starting level (you can set this dynamically)
+    private int currentLevel = 1; // Starting level (you can set this dynamically)
     private bool isAnimating = false; // To ensure only one coroutine runs at a time
     public Color multipleOf5Color = Color.green; // Color for multiples of 5
     public Color multipleOf30Color = Color.yellow;
@@ -79,6 +79,11 @@ public class LevelBar : MonoBehaviour
     {
         currentLevel = 1; // Reset the current level
         InitializeLevelDisplay(); // Reinitialize the level display
+    }
+
+    public void RestartSpinWheel()
+    {
+        TriggerBronzeSpin(); // Reinitialize the level display
     }
 
     private IEnumerator UpdateLevelDisplayCoroutine()

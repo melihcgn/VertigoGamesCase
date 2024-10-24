@@ -347,9 +347,7 @@
 "Assets/Scripts/DynamicIconAdjuster.cs"
 "Assets/Scripts/LevelBar.cs"
 "Assets/Scripts/ModalManager.cs"
-"Assets/Scripts/RewardManager.cs"
 "Assets/Scripts/SpinButtonHandler.cs"
-"Assets/Scripts/UIManager.cs"
 "Assets/Scripts/WheelSlice.cs"
 "Assets/Scripts/WheelSpin.cs"
 -langversion:9.0
