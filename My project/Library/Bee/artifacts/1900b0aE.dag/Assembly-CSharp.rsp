@@ -344,8 +344,12 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/Unity.VSCode.Editor.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
+"Assets/Scripts/DynamicIconAdjuster.cs"
 "Assets/Scripts/LevelBar.cs"
+"Assets/Scripts/ModalManager.cs"
+"Assets/Scripts/RewardManager.cs"
 "Assets/Scripts/SpinButtonHandler.cs"
+"Assets/Scripts/UIManager.cs"
 "Assets/Scripts/WheelSlice.cs"
 "Assets/Scripts/WheelSpin.cs"
 -langversion:9.0

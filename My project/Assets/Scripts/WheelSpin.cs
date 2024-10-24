@@ -13,12 +13,15 @@ namespace Wheel
         private float targetAngle; // The angle to snap to after spinning
         public GameObject slicePrefab; // Reference to your WheelSlice prefab
         public List<WheelSlice> wheelSlices; // List of slices on the wheel
+        public ModalManager modalManager;
+        private float initialAngle;
+
         private void Start()
         {
-            // Initialize the target angle to the current angle
-            targetAngle = transform.eulerAngles.z;
+            initialAngle = transform.eulerAngles.z; // Store the initial angle
+            targetAngle = initialAngle;            // Initialize the target angle to the current angle
+            Debug.Log("initialAngle:initialAngle: " + initialAngle);
             InstantiateWheelSlices();
-
         }
 
         void Update()
@@ -84,7 +87,7 @@ namespace Wheel
                 TextMeshProUGUI textComponent = slice.GetComponentInChildren<TextMeshProUGUI>(); // or TextMeshProUGUI
                 if (textComponent != null)
                 {
-                    textComponent.text = sliceData.name; // Set the text from the WheelSlice
+                    textComponent.text = sliceData.text; // Set the text from the WheelSlice
                 }
             }
         }
@@ -106,24 +109,27 @@ namespace Wheel
         // Snap the wheel to the nearest target angle and detect the slice
         private void SnapToNearestAngle()
         {
-            float currentAngle = transform.eulerAngles.z;
-            float nearestAngle = GetNearestAngle(currentAngle);
+            float currentAngle = transform.eulerAngles.z; // Get the current angle of the wheel
+            float nearestAngle = GetNearestAngle(currentAngle); // Get the nearest target angle
+            Debug.Log("currentAngle: " + currentAngle);
 
-            // Get the index of the nearest slice based on the angle
-            int sliceIndex = Mathf.RoundToInt(nearestAngle / (360f / wheelSlices.Count)) % wheelSlices.Count;
+            // Adjust the angle by subtracting the initial angle (set during the Start)
+            float adjustedAngle = (nearestAngle - initialAngle + 360f) % 360f;
 
-            // Get the name of the slice that the wheel lands on
-            string sliceName = wheelSlices[sliceIndex].name;
-
-            // Check if the name is "A"
-            if (sliceName != "A")
+            //for counterclockwise
+            // Calculate the slice index based on the adjusted angle
+            int sliceNum = Mathf.RoundToInt(adjustedAngle / (360f / wheelSlices.Count));
+            int sliceIndex = sliceNum % wheelSlices.Count;
+            Debug.Log("initial angle: " + initialAngle);
+            // Ensure the index is valid
+            if (sliceIndex >= 0 && sliceIndex < wheelSlices.Count)
             {
-                Debug.Log("Game Over: You landed on A!");
-                // Add your game-over logic here (e.g., display game over screen)
-            }
-            else
-            {
-                Debug.Log($"Wheel landed on: {sliceName}");
+                // Get the correct slice data
+                WheelSlice selectedSlice = wheelSlices[(wheelSlices.Count - sliceIndex +2) % wheelSlices.Count];
+                Debug.Log("Landed on slice: " + selectedSlice.name); // Debugging line
+
+                // Show the correct modal based on the selected slice data
+                modalManager.ShowModal(selectedSlice); // Pass the correct slice data
             }
 
             // Smoothly rotate to the nearest angle

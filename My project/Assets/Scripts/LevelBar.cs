@@ -11,6 +11,9 @@ public class LevelBar : MonoBehaviour
     private bool isAnimating = false; // To ensure only one coroutine runs at a time
     public Color multipleOf5Color = Color.green; // Color for multiples of 5
     public Color multipleOf30Color = Color.yellow;
+    public GameObject uiGolden;
+    public GameObject uiSilver;
+    public GameObject uiBronze;
     private void Start()
     {
         InitializeLevelDisplay(); // Initialize the display at start
@@ -22,7 +25,60 @@ public class LevelBar : MonoBehaviour
         {
             currentLevel++;
             StartCoroutine(UpdateLevelDisplayCoroutine());
+
+            // Determine spin type based on the current level
+            if (currentLevel % 30 == 0)
+            {
+                TriggerGoldenSpin();
+            }
+            else if (currentLevel % 5 == 0)
+            {
+                TriggerSilverSpin();
+            }
+            else
+            {
+                TriggerBronzeSpin();
+            }
         }
+    }
+
+    private void TriggerGoldenSpin()
+    {
+        Debug.Log("Golden Spin Triggered!");
+        // Show a golden spin modal or animation
+        uiBronze.SetActive(false);
+        uiGolden.SetActive(true);
+    }
+
+    private void TriggerSilverSpin()
+    {
+        Debug.Log("Silver Spin Triggered!");
+        // Show a silver spin modal or animation
+        uiBronze.SetActive(false);
+        uiSilver.SetActive(true);
+    }
+
+    private void TriggerBronzeSpin()
+    {
+        Debug.Log("Bronze Spin Triggered!");
+
+        // Check if uiBronze is inactive, then activate it
+        if (!uiBronze.activeSelf)
+        {
+            // Disable other UI elements
+            uiGolden.SetActive(false);
+            uiSilver.SetActive(false);
+
+            // Activate the Bronze UI
+            uiBronze.SetActive(true);
+        }
+
+        // Logic for Bronze Spin (basic rewards)
+    }
+    public void RestartLevelBar()
+    {
+        currentLevel = 1; // Reset the current level
+        InitializeLevelDisplay(); // Reinitialize the level display
     }
 
     private IEnumerator UpdateLevelDisplayCoroutine()
@@ -80,36 +136,41 @@ public class LevelBar : MonoBehaviour
 
         isAnimating = false; // Unlock animation for the next level-up
     }
-private void InitializeLevelDisplay()
-{
-    // Create level items
-    for (int i = 1; i <= totalLevels; i++)
+    private void InitializeLevelDisplay()
     {
-        GameObject levelItem = Instantiate(levelPrefab, levelContainer);
-        TextMeshProUGUI levelText = levelItem.GetComponent<TextMeshProUGUI>(); // Assuming levelPrefab has a Text component
-        if (levelText != null)
+        // Clear previous level items before initializing new ones
+        foreach (Transform child in levelContainer)
         {
-            levelText.text = i.ToString(); // Set the level number
-
-            // Set color for multiples of 5 and 30
-            if (i % 30 == 0)
-            {
-                levelText.color = multipleOf30Color; // Set yellow for multiples of 30
-            }
-            else if (i % 5 == 0)
-            {
-                levelText.color = multipleOf5Color; // Set green for multiples of 5
-            }
+            Destroy(child.gameObject); // Destroy all previous level items
         }
 
-        // Set the initial position
-        RectTransform rectTransform = levelItem.GetComponent<RectTransform>();
-        if (rectTransform != null)
+        // Now create level items
+        for (int i = 1; i <= totalLevels; i++)
         {
-            rectTransform.anchoredPosition = new Vector2(0, -((i - 1) * rectTransform.rect.height)); // Initial positioning
+            GameObject levelItem = Instantiate(levelPrefab, levelContainer);
+            TextMeshProUGUI levelText = levelItem.GetComponent<TextMeshProUGUI>(); // Assuming levelPrefab has a Text component
+
+            if (levelText != null)
+            {
+                levelText.text = i.ToString(); // Set the level number
+
+                // Set color for multiples of 5 and 30
+                if (i % 30 == 0)
+                {
+                    levelText.color = multipleOf30Color; // Set yellow for multiples of 30
+                }
+                else if (i % 5 == 0)
+                {
+                    levelText.color = multipleOf5Color; // Set green for multiples of 5
+                }
+            }
+
+            // Set the initial position
+            RectTransform rectTransform = levelItem.GetComponent<RectTransform>();
+            if (rectTransform != null)
+            {
+                rectTransform.anchoredPosition = new Vector2(0, -((i - 1) * rectTransform.rect.height)); // Initial positioning
+            }
         }
     }
-}
-
-
 }
