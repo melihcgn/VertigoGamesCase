@@ -941,4 +941,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/SampleScene.unity
-  playerPath: C:/Users/melih/Desktop/vertigoCase/VertigoCaseAPK/VertigoCaseAPKbuilds.apk
+  playerPath: C:/Users/melih/Desktop/vertigoCase/VertigoCaseAPK/VertigoCaseAPKbuilds_v3.apk
