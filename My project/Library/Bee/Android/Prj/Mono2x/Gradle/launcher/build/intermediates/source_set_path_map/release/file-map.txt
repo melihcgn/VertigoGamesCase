@@ -1,0 +1,9 @@
+com.DefaultCompany.VertigoGamesCase.launcher-pngs-0 C:\Users\melih\Desktop\vertigoCase\SpinWheel\VertigoGamesCase\My project\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\build\generated\res\pngs\release
+com.DefaultCompany.VertigoGamesCase.launcher-resValues-1 C:\Users\melih\Desktop\vertigoCase\SpinWheel\VertigoGamesCase\My project\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\build\generated\res\resValues\release
+com.DefaultCompany.VertigoGamesCase.launcher-rs-2 C:\Users\melih\Desktop\vertigoCase\SpinWheel\VertigoGamesCase\My project\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\build\generated\res\rs\release
+com.DefaultCompany.VertigoGamesCase.launcher-mergeReleaseResources-3 C:\Users\melih\Desktop\vertigoCase\SpinWheel\VertigoGamesCase\My project\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\build\intermediates\incremental\release\mergeReleaseResources\merged.dir
+com.DefaultCompany.VertigoGamesCase.launcher-mergeReleaseResources-4 C:\Users\melih\Desktop\vertigoCase\SpinWheel\VertigoGamesCase\My project\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\build\intermediates\incremental\release\mergeReleaseResources\stripped.dir
+com.DefaultCompany.VertigoGamesCase.launcher-merged_res-5 C:\Users\melih\Desktop\vertigoCase\SpinWheel\VertigoGamesCase\My project\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\build\intermediates\merged_res\release
+com.DefaultCompany.VertigoGamesCase.launcher-main-6 C:\Users\melih\Desktop\vertigoCase\SpinWheel\VertigoGamesCase\My project\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\main\res
+com.DefaultCompany.VertigoGamesCase.launcher-release-7 C:\Users\melih\Desktop\vertigoCase\SpinWheel\VertigoGamesCase\My project\Library\Bee\Android\Prj\Mono2x\Gradle\launcher\src\release\res
+com.DefaultCompany.VertigoGamesCase.launcher-packaged_res-8 C:\Users\melih\Desktop\vertigoCase\SpinWheel\VertigoGamesCase\My project\Library\Bee\Android\Prj\Mono2x\Gradle\unityLibrary\build\intermediates\packaged_res\release

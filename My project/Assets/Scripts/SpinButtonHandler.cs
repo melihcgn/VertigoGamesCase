@@ -6,7 +6,7 @@ namespace Wheel
     public class SpinButtonHandler : MonoBehaviour
     {
         public Button spinButton;  // Reference to your button "ui_generic_spin"
-        private WheelSpin wheelSpin; // Reference to the WheelSpin script
+        public WheelSpin wheelSpin; // Reference to the WheelSpin script
 
         // Automatically set references when modified in the editor
         private void OnValidate()
@@ -23,17 +23,6 @@ namespace Wheel
                 }
             }
 
-            // Automatically find the WheelSpin script in the scene if it's not set
-            if (wheelSpin == null)
-            {
-                wheelSpin = FindObjectOfType<WheelSpin>();
-
-                // Log a message if WheelSpin couldn't be found
-                if (wheelSpin == null)
-                {
-                    Debug.LogWarning("WheelSpin script not found in the scene.");
-                }
-            }
         }
 
         void Start()

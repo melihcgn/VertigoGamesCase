@@ -366,6 +366,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spinButton: {fileID: 5800994210337692324}
+  wheelSpin: {fileID: 7503191338425572604}
 --- !u!114 &7503191338425572604
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -384,20 +385,28 @@ MonoBehaviour:
   wheelSlices:
   - name: A
     icon: {fileID: 0}
+    text: 
   - name: B
     icon: {fileID: 0}
+    text: 
   - name: C
     icon: {fileID: 0}
+    text: 
   - name: D
     icon: {fileID: 0}
+    text: 
   - name: E
     icon: {fileID: 0}
+    text: 
   - name: F
     icon: {fileID: 0}
+    text: 
   - name: G
     icon: {fileID: 0}
+    text: 
   - name: H
     icon: {fileID: 0}
+    text: 
   modalManager: {fileID: 0}
 --- !u!1001 &3338213941405663136
 PrefabInstance:
